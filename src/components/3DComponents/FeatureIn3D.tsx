@@ -1,7 +1,7 @@
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { useGLTF, PresentationControls, Stage, OrbitControls } from '@react-three/drei';
+import { useGLTF, Stage, OrbitControls } from '@react-three/drei';
 
 function Model({ path }: { path: string }) {
   const { scene } = useGLTF(path);
@@ -14,6 +14,20 @@ interface FeatureIn3DProps {
 
 const FeatureIn3D = ({ modelPath = "/models/coin.glb" }: FeatureIn3DProps) => {
   const [hasError, setHasError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  
+  // Use a timeout to prevent infinite loading
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!isLoaded) {
+        console.log("3D model load timeout, showing fallback");
+        setHasError(true);
+      }
+    }, 5000);
+    
+    return () => clearTimeout(timeout);
+  }, [isLoaded]);
 
   if (hasError) {
     return (
@@ -28,16 +42,25 @@ const FeatureIn3D = ({ modelPath = "/models/coin.glb" }: FeatureIn3DProps) => {
 
   return (
     <div className="w-full h-full min-h-[200px]">
+      {!isLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="w-8 h-8 border-4 border-zacro-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      
       <Canvas
-        dpr={[1, 2]}
+        ref={canvasRef}
+        dpr={[1, 1.5]} // Lowered DPR for better performance
         camera={{ position: [0, 0, 4], fov: 50 }}
         onCreated={() => {
           console.log("Canvas created successfully");
+          setIsLoaded(true);
         }}
-        onError={() => {
-          console.error("Canvas error occurred");
+        onError={(error) => {
+          console.error("Canvas error occurred:", error);
           setHasError(true);
         }}
+        style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.5s ease' }}
       >
         <color attach="background" args={['#1a1a1a']} />
         <ambientLight intensity={0.5} />
@@ -47,7 +70,14 @@ const FeatureIn3D = ({ modelPath = "/models/coin.glb" }: FeatureIn3DProps) => {
           <Stage environment="city" intensity={0.6}>
             <Model path={modelPath} />
           </Stage>
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
+          <OrbitControls 
+            enableZoom={false} 
+            autoRotate={true} 
+            autoRotateSpeed={1} 
+            enablePan={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 4}
+          />
         </Suspense>
       </Canvas>
     </div>

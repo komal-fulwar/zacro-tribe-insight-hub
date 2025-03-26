@@ -22,13 +22,13 @@ const SplineWrapper = ({
   useEffect(() => {
     setIsMounted(true);
     
-    // Safety timeout - if Spline doesn't load within 10 seconds, show fallback
+    // Safety timeout - if Spline doesn't load within 8 seconds, show fallback
     const timeout = setTimeout(() => {
       if (!isLoaded && !hasError) {
         console.log("Spline load timeout, showing fallback");
         setHasError(true);
       }
-    }, 10000);
+    }, 8000);
     
     return () => {
       clearTimeout(timeout);
@@ -45,7 +45,7 @@ const SplineWrapper = ({
 
   const handleError = () => {
     if (isMounted) {
-      console.log("Error loading Spline scene:", scene);
+      console.error("Error loading Spline scene:", scene);
       setHasError(true);
     }
   };
@@ -62,14 +62,14 @@ const SplineWrapper = ({
   }
 
   return (
-    <div className={`relative w-full ${height}`}>
+    <div className={`relative w-full ${height} overflow-hidden`}>
       {!isLoaded && !hasError && (
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 z-10 flex items-center justify-center">
           <div className="w-8 h-8 border-4 border-zacro-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
       
-      <div style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.5s ease', height: '100%' }}>
+      <div className={isLoaded ? "opacity-100 transition-opacity duration-500" : "opacity-0"} style={{ height: '100%' }}>
         <Spline
           scene={scene}
           onLoad={handleLoad}
