@@ -107,7 +107,7 @@
 
 @layer components {
   .glass-card {
-    @apply bg-black/20 backdrop-blur-lg border border-white/10 rounded-lg overflow-hidden;
+    @apply bg-black/20 backdrop-blur-lg border border-white/10 rounded-lg overflow-hidden shadow-lg;
   }
   
   .glass-button {
@@ -137,6 +137,18 @@
   .badge {
     @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-zacro-500/20 text-zacro-400;
   }
+  
+  .btn-gradient {
+    @apply bg-gradient-to-r from-zacro-600 to-zacro-500 hover:from-zacro-500 hover:to-zacro-400 text-white transition-all duration-300;
+  }
+  
+  .card-highlight {
+    @apply border-zacro-500/20 shadow-lg shadow-zacro-500/5 hover:shadow-zacro-500/10 transition-all duration-300;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-zacro-400 to-zacro-600 bg-clip-text text-transparent;
+  }
 }
 
 /* Custom animations */
@@ -158,6 +170,19 @@
 
 .animate-delay-500 {
   animation-delay: 500ms;
+}
+
+/* Hover animations */
+.hover-scale {
+  @apply transition-all duration-300 hover:scale-105;
+}
+
+.hover-lift {
+  @apply transition-all duration-300 hover:-translate-y-1;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-zacro-500/20;
 }
 
 /* Scrollbar styling */
