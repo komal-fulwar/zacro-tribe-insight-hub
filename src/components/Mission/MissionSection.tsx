@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 import MissionCard from './MissionCard';
 import ValueCard from './ValueCard';
-import Spline from '@splinetool/react-spline';
+import MissionSpline from '../3DComponents/MissionSpline';
 
 const MissionSection = () => {
   const missionItems = [

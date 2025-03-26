@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import RoadmapCard from './RoadmapCard';
 import RoadmapTimeline from './RoadmapTimeline';
-import Spline from '@splinetool/react-spline';
+import RoadmapSpline from '../3DComponents/RoadmapSpline';
 
 const RoadmapSection = () => {
   const phases = [
@@ -15,7 +15,7 @@ const RoadmapSection = () => {
         "Deploy smart contracts and perform security audits",
         "Establish ICO and partnerships with global regulatory bodies"
       ],
-      position: "left"
+      position: "left" as const
     },
     {
       title: "Q2 2024",
@@ -25,7 +25,7 @@ const RoadmapSection = () => {
         "Develop integration into major exchange global financial news centers",
         "Establish cross-chain integration and strategic partnerships"
       ],
-      position: "right"
+      position: "right" as const
     },
     {
       title: "Q3 2024",
@@ -34,7 +34,7 @@ const RoadmapSection = () => {
         "Implement advanced AI prediction tools for market analytics",
         "Expand community governance and sector collaboration features"
       ],
-      position: "left"
+      position: "left" as const
     },
     {
       title: "Q4 2024",
@@ -44,7 +44,7 @@ const RoadmapSection = () => {
         "Implement cross-chain interoperability and chain routing",
         "Transition to DAO governance and enhance sustainable tokenomics"
       ],
-      position: "right"
+      position: "right" as const
     }
   ];
 
