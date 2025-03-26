@@ -72,7 +72,7 @@ export default {
           950: '#190150'
         },
         dark: {
-          DEFAULT: '#0C0E15', 
+          DEFAULT: '#0A0A19', 
           50: '#F5F6F9',
           100: '#E0E2EB',
           200: '#C1C6D6',
@@ -83,7 +83,7 @@ export default {
           700: '#3C435C',
           800: '#282C3D',
           900: '#14161F',
-          950: '#0A0B10'
+          950: '#0A0A19'
         },
         crypto: {
           blue: '#007BFF',
@@ -143,6 +143,14 @@ export default {
             opacity: '1'
           }
         },
+        'float': {
+          '0%, 100%': {
+            transform: 'translateY(0)'
+          },
+          '50%': {
+            transform: 'translateY(-10px)'
+          }
+        },
         'pulse-glow': {
           '0%, 100%': {
             boxShadow: '0 0 0 rgba(224, 21, 29, 0)'
@@ -159,13 +167,14 @@ export default {
         'fade-up': 'fade-up 0.7s ease-out',
         'slide-in-right': 'slide-in-right 0.5s ease-out',
         'slide-in-left': 'slide-in-left 0.5s ease-out',
+        'float': 'float 3s ease-in-out infinite',
         'pulse-glow': 'pulse-glow 2s infinite'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-pattern': 'linear-gradient(to bottom, rgba(12, 14, 21, 0.9), rgba(12, 14, 21, 0.8)), url("/public/lovable-uploads/c5832dc7-b42a-46b5-a0e7-2004ec586cfc.png")',
-        'crypto-grid': 'linear-gradient(rgba(12, 14, 21, 0.97), rgba(12, 14, 21, 0.97)), url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%237F45FB\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2v40H40V0zm0 38h40v2H40v-2z\'/%3E%3C/g%3E%3C/svg%3E")',
+        'hero-pattern': 'linear-gradient(to bottom, rgba(10, 10, 25, 0.9), rgba(10, 10, 25, 0.8)), url("/lovable-uploads/af438c3c-77c3-4e4d-8122-c86d7859b3cf.png")',
+        'crypto-grid': 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Cpath d=\'M0 0 L50 0 L50 50 L0 50 Z\' fill=\'none\' stroke=\'%233D2A90\' stroke-opacity=\'0.2\' stroke-width=\'0.5\'/%3E%3Cpath d=\'M50 0 L100 0 L100 50 L50 50 Z\' fill=\'none\' stroke=\'%233D2A90\' stroke-opacity=\'0.2\' stroke-width=\'0.5\'/%3E%3Cpath d=\'M0 50 L50 50 L50 100 L0 100 Z\' fill=\'none\' stroke=\'%233D2A90\' stroke-opacity=\'0.2\' stroke-width=\'0.5\'/%3E%3Cpath d=\'M50 50 L100 50 L100 100 L50 100 Z\' fill=\'none\' stroke=\'%233D2A90\' stroke-opacity=\'0.2\' stroke-width=\'0.5\'/%3E%3C/svg%3E"), linear-gradient(to bottom, #0A0A19, #0F0F2D)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

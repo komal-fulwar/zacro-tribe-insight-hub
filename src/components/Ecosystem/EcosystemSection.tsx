@@ -4,34 +4,32 @@ import { Layers, BarChart3, Zap, Shield } from 'lucide-react';
 const EcosystemSection = () => {
   const ecosystemItems = [
     {
-      icon: <Layers className="h-8 w-8 text-zacro-500" />,
+      icon: <Layers className="h-8 w-8 text-zacro-400" />,
       title: 'Verified sources and AI-powered filtering',
       description: 'for real-time financial news',
     },
     {
-      icon: <BarChart3 className="h-8 w-8 text-zacro-500" />,
+      icon: <BarChart3 className="h-8 w-8 text-zacro-400" />,
       title: 'AI-driven insights and trading signals',
       description: 'to inform your decisions',
     },
     {
-      icon: <Zap className="h-8 w-8 text-zacro-500" />,
+      icon: <Zap className="h-8 w-8 text-zacro-400" />,
       title: 'Earn ZAC tokens',
       description: 'for engaging, sharing, and contributing',
     },
     {
-      icon: <Shield className="h-8 w-8 text-zacro-500" />,
+      icon: <Shield className="h-8 w-8 text-zacro-400" />,
       title: 'Get the most curated news updates',
       description: 'before anyone else',
     },
   ];
 
   return (
-    <section id="ecosystem" className="py-24 bg-dark-950 relative overflow-hidden">
+    <section id="ecosystem" className="py-24 relative overflow-hidden grid-bg">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zacro-500/50 to-transparent"></div>
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zacro-500/50 to-transparent"></div>
-      <div className="absolute -left-64 top-1/4 w-96 h-96 bg-zacro-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute -right-64 bottom-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
 
       <div className="section-container relative z-10">
         {/* Section header */}
@@ -50,10 +48,10 @@ const EcosystemSection = () => {
           {ecosystemItems.map((item, index) => (
             <div 
               key={index}
-              className="glass-card p-6 flex flex-col items-center text-center animate-fade-up"
+              className="cube-card p-6 flex flex-col items-center text-center animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="mb-4 p-3 rounded-full bg-dark-800/50 backdrop-blur-lg border border-white/5">
+              <div className="mb-4 p-3 rounded-lg bg-dark-800/50 backdrop-blur-lg border border-white/5">
                 {item.icon}
               </div>
               <h3 className="text-lg font-medium mb-2">{item.title}</h3>

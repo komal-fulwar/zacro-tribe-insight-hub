@@ -42,12 +42,12 @@ const WalletSpline = () => {
   
   if (showFallback) {
     return (
-      <div className="w-full h-64 flex items-center justify-center crypto-card neon-border">
-        <div className="text-center p-4">
-          <div className="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-zacro-500 to-zacro-700 flex items-center justify-center mb-3">
+      <div className="w-full h-64 flex items-center justify-center cube-card animate-float">
+        <div className="text-center p-6">
+          <div className="mx-auto w-16 h-16 rounded-lg bg-gradient-to-br from-zacro-500/30 to-zacro-700/30 backdrop-blur-md flex items-center justify-center mb-4 border border-white/10">
             <Wallet className="text-white w-8 h-8" />
           </div>
-          <p className="text-xl font-medium text-white mb-1">Secure Wallet</p>
+          <p className="text-xl font-medium text-white mb-2">Secure Wallet</p>
           <p className="text-sm text-gray-400">Store & manage your crypto assets safely</p>
         </div>
       </div>
