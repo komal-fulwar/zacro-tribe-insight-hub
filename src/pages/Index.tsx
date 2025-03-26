@@ -1,5 +1,6 @@
 
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Layout/Navbar";
 import Footer from "@/components/Layout/Footer";
 import Hero from "@/components/Hero/Hero";
@@ -7,6 +8,10 @@ import FeaturesSection from "@/components/Features/FeaturesSection";
 import EcosystemSection from "@/components/Ecosystem/EcosystemSection";
 import TokenomicsSection from "@/components/Tokenomics/TokenomicsSection";
 import CtaSection from "@/components/CTA/CtaSection";
+import HowToBuySection from "@/components/HowToBuy/HowToBuySection";
+import RoadmapSection from "@/components/Roadmap/RoadmapSection";
+import MissionSection from "@/components/Mission/MissionSection";
+import FeaturedSection from "@/components/Featured/FeaturedSection";
 
 const Index = () => {
   // Smooth scroll effect for anchor links
@@ -42,8 +47,12 @@ const Index = () => {
       <main>
         <Hero />
         <FeaturesSection />
+        <MissionSection />
         <EcosystemSection />
+        <RoadmapSection />
         <TokenomicsSection />
+        <HowToBuySection />
+        <FeaturedSection />
         <CtaSection />
       </main>
       <Footer />
