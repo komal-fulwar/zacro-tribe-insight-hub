@@ -2,7 +2,6 @@
 import { CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Spline from '@splinetool/react-spline';
 
 interface RoadmapCardProps {
   title: string;

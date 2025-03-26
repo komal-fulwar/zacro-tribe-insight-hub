@@ -8,7 +8,6 @@ import {
   CarouselNext,
   CarouselPrevious
 } from '@/components/ui/carousel';
-import Spline from '@splinetool/react-spline';
 
 const FeaturedSection = () => {
   const featuredLogos = [
