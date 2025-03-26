@@ -57,7 +57,7 @@ const WalletSpline = () => {
   return (
     <SplineWrapper 
       scene="https://prod.spline.design/6a0kkXxsJNClJ6lL/scene.splinecode"
-      fallbackIcon={<Wallet className="text-zacro-400 w-10 h-10" />}
+      fallbackIcon="💰"
       fallbackText="Secure digital wallet for your assets"
     />
   );
