@@ -1,9 +1,8 @@
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import RoadmapCard from './RoadmapCard';
 import RoadmapTimeline from './RoadmapTimeline';
-import RoadmapSpline from '../3DComponents/RoadmapSpline';
 
 const RoadmapSection = () => {
   const phases = [

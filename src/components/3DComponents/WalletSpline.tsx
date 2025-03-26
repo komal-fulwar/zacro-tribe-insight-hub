@@ -5,20 +5,20 @@ import SplineWrapper from './SplineWrapper';
 const WalletSpline = () => {
   const [showFallback, setShowFallback] = useState(false);
   
-  // If there's a WebGL context issue, show fallback after a short delay
+  // Check WebGL support on mount
   useEffect(() => {
-    const checkWebGLSupport = () => {
-      try {
-        const canvas = document.createElement('canvas');
-        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        setShowFallback(!gl);
-      } catch (e) {
-        console.error("WebGL check failed:", e);
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) {
+        console.log("WebGL not supported, showing fallback");
         setShowFallback(true);
+        return;
       }
-    };
-    
-    checkWebGLSupport();
+    } catch (e) {
+      console.error("WebGL check failed:", e);
+      setShowFallback(true);
+    }
   }, []);
   
   if (showFallback) {

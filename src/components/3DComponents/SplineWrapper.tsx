@@ -19,8 +19,23 @@ const SplineWrapper = ({
   const [hasError, setHasError] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
+  // Check WebGL support on mount
   useEffect(() => {
     setIsMounted(true);
+    
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) {
+        console.log("WebGL not supported, showing fallback");
+        setHasError(true);
+        return;
+      }
+    } catch (e) {
+      console.error("WebGL check failed:", e);
+      setHasError(true);
+      return;
+    }
     
     // Safety timeout - if Spline doesn't load within 8 seconds, show fallback
     const timeout = setTimeout(() => {
