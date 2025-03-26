@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import SplineWrapper from './SplineWrapper';
+import { ShieldAlert, Wallet } from 'lucide-react';
 
 const WalletSpline = () => {
   const [showFallback, setShowFallback] = useState(false);
@@ -41,11 +42,13 @@ const WalletSpline = () => {
   
   if (showFallback) {
     return (
-      <div className="w-full h-64 flex items-center justify-center bg-gradient-to-br from-dark-900/80 to-dark-800/80 rounded-lg border border-white/5">
+      <div className="w-full h-64 flex items-center justify-center crypto-card neon-border">
         <div className="text-center p-4">
-          <div className="text-zacro-500 text-5xl mb-3">💼</div>
-          <p className="text-xl font-medium text-white">Wallet</p>
-          <p className="text-sm text-gray-400 mt-2">Secure crypto storage</p>
+          <div className="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-zacro-500 to-zacro-700 flex items-center justify-center mb-3">
+            <Wallet className="text-white w-8 h-8" />
+          </div>
+          <p className="text-xl font-medium text-white mb-1">Secure Wallet</p>
+          <p className="text-sm text-gray-400">Store & manage your crypto assets safely</p>
         </div>
       </div>
     );
@@ -54,8 +57,8 @@ const WalletSpline = () => {
   return (
     <SplineWrapper 
       scene="https://prod.spline.design/6a0kkXxsJNClJ6lL/scene.splinecode"
-      fallbackIcon="💼"
-      fallbackText="Wallet visualization"
+      fallbackIcon={<Wallet className="text-zacro-400 w-10 h-10" />}
+      fallbackText="Secure digital wallet for your assets"
     />
   );
 };

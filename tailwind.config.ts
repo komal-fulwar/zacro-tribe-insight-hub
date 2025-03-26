@@ -58,33 +58,42 @@ export default {
           foreground: 'hsl(var(--card-foreground))'
         },
         zacro: {
-          DEFAULT: '#E0151D',
-          50: '#FDE6E7',
-          100: '#FBCCCF',
-          200: '#F5999E',
-          300: '#F0666D',
-          400: '#EA333C',
-          500: '#E0151D',
-          600: '#B21118',
-          700: '#850D12',
-          800: '#57080C',
-          900: '#2A0406',
-          950: '#140203'
+          DEFAULT: '#7F45FB',
+          50: '#F4EEFF',
+          100: '#E8DDFE',
+          200: '#D1BBFD',
+          300: '#BA99FC',
+          400: '#A377FB',
+          500: '#7F45FB',
+          600: '#5D12FA',
+          700: '#4602D7',
+          800: '#3401A2',
+          900: '#22016D',
+          950: '#190150'
         },
         dark: {
-          DEFAULT: '#0F1215', 
-          50: '#F5F7F9',
-          100: '#E0E6EB',
-          200: '#C1CCD6',
-          300: '#A2B3C1',
-          400: '#8399AC',
-          500: '#657E97',
-          600: '#50647A',
-          700: '#3C4B5C',
-          800: '#28323D',
-          900: '#14191F',
-          950: '#0A0D10'
+          DEFAULT: '#0C0E15', 
+          50: '#F5F6F9',
+          100: '#E0E2EB',
+          200: '#C1C6D6',
+          300: '#A2AAC1',
+          400: '#838DAC',
+          500: '#657197',
+          600: '#50597A',
+          700: '#3C435C',
+          800: '#282C3D',
+          900: '#14161F',
+          950: '#0A0B10'
         },
+        crypto: {
+          blue: '#007BFF',
+          green: '#28C76F',
+          yellow: '#FF9F43',
+          purple: '#7367F0',
+          cyan: '#00CFE8',
+          pink: '#EA5455',
+          orange: '#FF5722'
+        }
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -155,7 +164,8 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-pattern': 'linear-gradient(to bottom, rgba(15, 18, 21, 0.9), rgba(15, 18, 21, 0.8)), url("/public/lovable-uploads/c5832dc7-b42a-46b5-a0e7-2004ec586cfc.png")',
+        'hero-pattern': 'linear-gradient(to bottom, rgba(12, 14, 21, 0.9), rgba(12, 14, 21, 0.8)), url("/public/lovable-uploads/c5832dc7-b42a-46b5-a0e7-2004ec586cfc.png")',
+        'crypto-grid': 'linear-gradient(rgba(12, 14, 21, 0.97), rgba(12, 14, 21, 0.97)), url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%237F45FB\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2v40H40V0zm0 38h40v2H40v-2z\'/%3E%3C/g%3E%3C/svg%3E")',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

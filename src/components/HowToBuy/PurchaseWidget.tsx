@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { ArrowDownCircle, Wallet, ExternalLink } from 'lucide-react';
+import { ArrowDownCircle, Wallet, ExternalLink, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
@@ -33,7 +33,7 @@ const PurchaseWidget = () => {
   };
 
   return (
-    <Card className="glass-card border-white/10 overflow-hidden h-full">
+    <Card className="crypto-card border-white/10 overflow-hidden h-full">
       <CardContent className="p-6">
         <div className="space-y-6">
           {/* Current Price Info */}
@@ -71,10 +71,10 @@ const PurchaseWidget = () => {
                 value={amount}
                 onChange={handleAmountChange}
                 placeholder="0.0"
-                className="w-full bg-dark-800/50 text-white rounded-lg p-4 pr-24 border border-white/10 focus:outline-none focus:ring-2 focus:ring-zacro-500/50"
+                className="w-full bg-dark-800/70 text-white rounded-lg p-4 pr-24 border border-white/10 focus:outline-none focus:ring-2 focus:ring-zacro-500/50"
               />
               <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                <Button variant="outline" className="bg-yellow-500 text-black border-none hover:bg-yellow-600">
+                <Button variant="outline" className="bg-crypto-yellow text-black border-none hover:bg-crypto-yellow/80">
                   BNB ▼
                 </Button>
               </div>
@@ -84,7 +84,7 @@ const PurchaseWidget = () => {
           
           {/* Arrow */}
           <div className="flex justify-center">
-            <div className="bg-dark-800/50 rounded-full p-2">
+            <div className="bg-dark-800/70 rounded-full p-2">
               <ArrowDownCircle className="h-6 w-6 text-zacro-500" />
             </div>
           </div>
@@ -95,7 +95,7 @@ const PurchaseWidget = () => {
               type="text"
               value={receiveAmount}
               readOnly
-              className="w-full bg-dark-800/50 text-white rounded-lg p-4 pr-24 border border-white/10"
+              className="w-full bg-dark-800/70 text-white rounded-lg p-4 pr-24 border border-white/10"
             />
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
               <Button variant="outline" className="bg-zacro-500 text-white border-none hover:bg-zacro-600">
@@ -111,14 +111,14 @@ const PurchaseWidget = () => {
             <div className="grid grid-cols-2 gap-2">
               <Button 
                 variant="outline" 
-                className={`border ${selectedBlockchain === 'BNB' ? 'bg-yellow-500 text-black' : 'bg-dark-800/50 text-gray-400'} border-white/10 hover:bg-yellow-500 hover:text-black justify-center`}
+                className={`border ${selectedBlockchain === 'BNB' ? 'bg-crypto-yellow text-black' : 'bg-dark-800/50 text-gray-400'} border-white/10 hover:bg-crypto-yellow hover:text-black justify-center transition-colors duration-200`}
                 onClick={() => setSelectedBlockchain('BNB')}
               >
                 <span className="text-yellow-700 mr-2">●</span> BNB Chain
               </Button>
               <Button 
                 variant="outline" 
-                className={`border ${selectedBlockchain === 'ETH' ? 'bg-blue-500 text-white' : 'bg-dark-800/50 text-gray-400'} border-white/10 hover:bg-blue-500 hover:text-white justify-center`}
+                className={`border ${selectedBlockchain === 'ETH' ? 'bg-crypto-blue text-white' : 'bg-dark-800/50 text-gray-400'} border-white/10 hover:bg-crypto-blue hover:text-white justify-center transition-colors duration-200`}
                 onClick={() => setSelectedBlockchain('ETH')}
               >
                 <span className="text-blue-700 mr-2">●</span> Ethereum
@@ -130,20 +130,20 @@ const PurchaseWidget = () => {
           <div>
             <p className="text-sm text-gray-400 mb-2">Accepting</p>
             <div className="flex gap-2">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center shadow-md">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-crypto-blue to-crypto-cyan flex items-center justify-center shadow-md">
                 <span className="text-white font-bold">T</span>
               </div>
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-600 flex items-center justify-center shadow-md">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-crypto-yellow to-crypto-orange flex items-center justify-center shadow-md">
                 <span className="text-white font-bold">B</span>
               </div>
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center shadow-md">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-zacro-500 to-zacro-600 flex items-center justify-center shadow-md">
                 <span className="text-white font-bold">Z</span>
               </div>
             </div>
           </div>
           
           {/* Connect Wallet */}
-          <Button variant="outline" className="w-full border-white/20 bg-dark-800/50 text-white" onClick={handleConnectWallet}>
+          <Button variant="outline" className="w-full border-white/20 bg-dark-800/50 text-white hover:bg-dark-700/50 transition-colors duration-200" onClick={handleConnectWallet}>
             <Wallet className="w-5 h-5 mr-2" />
             Connect Wallet
           </Button>
@@ -153,14 +153,15 @@ const PurchaseWidget = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Button className="w-full bg-zacro-500 hover:bg-zacro-600 py-6 text-lg">
+            <Button className="w-full bg-gradient-to-r from-zacro-600 to-zacro-500 hover:from-zacro-500 hover:to-zacro-400 py-6 text-lg group transition-all duration-300">
               Buy $ZACRO Now
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
           </motion.div>
           
           {/* Terms */}
           <div className="text-center text-xs text-gray-400">
-            <p>By purchasing you agree to our <a href="#" className="text-zacro-500 hover:underline">Terms of Service</a></p>
+            <p>By purchasing you agree to our <a href="#" className="text-zacro-400 hover:text-zacro-300 hover:underline transition-colors">Terms of Service</a></p>
           </div>
         </div>
       </CardContent>
